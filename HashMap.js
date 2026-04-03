@@ -21,6 +21,9 @@ class HashMap {
 
   set(key, value) {
     const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bounds");
+    }
 
     if (!this.buckets[index]) {
       this.buckets[index] = new LinkedList();
@@ -63,6 +66,9 @@ class HashMap {
 
   get(key) {
     const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bounds");
+    }
     const list = this.buckets[index];
 
     if (!list) return null;
@@ -73,6 +79,9 @@ class HashMap {
 
   has(key) {
     const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bounds");
+    }
     const list = this.buckets[index];
 
     if (!list) return false;
@@ -82,6 +91,9 @@ class HashMap {
 
   remove(key) {
     const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bounds");
+    }
     const list = this.buckets[index];
 
     if (!list) return false;
