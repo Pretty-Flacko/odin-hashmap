@@ -1,3 +1,5 @@
+import LinkedList from "./LinkedList.js";
+
 class HashMap {
   constructor(initialCapacity = 16, loadFactor = 0.75) {
     this.capacity = initialCapacity;
@@ -17,3 +19,5 @@ class HashMap {
     return hashCode;
   }
 }
+
+export default HashMap;
