@@ -36,6 +36,29 @@ class HashMap {
       list.append(key, value);
       this.size++;
     }
+
+    if (this.size / this.capacity > this.loadFactor) {
+      this.resize();
+    }
+  }
+
+  resize() {
+    const oldBuckets = this.buckets;
+
+    this.capacity *= 2;
+    this.buckets = new Array(this.capacity).fill(null);
+    this.size = 0;
+
+    for (let list of oldBuckets) {
+      if (list) {
+        let current = list.head;
+
+        while (current) {
+          this.set(current.key, current.value);
+          current = current.next;
+        }
+      }
+    }
   }
 
   get(key) {
