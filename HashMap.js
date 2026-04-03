@@ -37,6 +37,25 @@ class HashMap {
       this.size++;
     }
   }
+
+  get(key) {
+    const index = this.hash(key);
+    const list = this.buckets[index];
+
+    if (!list) return null;
+
+    const node = list.find(key);
+    return node ? node.value : null;
+  }
+
+  has(key) {
+    const index = this.hash(key);
+    const list = this.buckets[index];
+
+    if (!list) return false;
+
+    return !!list.find(key);
+  }
 }
 
 export default HashMap;
