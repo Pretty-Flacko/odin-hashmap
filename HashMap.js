@@ -18,6 +18,25 @@ class HashMap {
 
     return hashCode;
   }
+
+  set(key, value) {
+    const index = this.hash(key);
+
+    if (!this.buckets[index]) {
+      this.buckets[index] = new LinkedList();
+    }
+
+    const list = this.buckets[index];
+
+    const existingNode = list.find(key);
+
+    if (existingNode) {
+      existingNode.value = value;
+    } else {
+      list.append(key, value);
+      this.size++;
+    }
+  }
 }
 
 export default HashMap;
