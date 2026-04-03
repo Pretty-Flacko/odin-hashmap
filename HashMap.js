@@ -56,6 +56,18 @@ class HashMap {
 
     return !!list.find(key);
   }
+
+  remove(key) {
+    const index = this.hash(key);
+    const list = this.buckets[index];
+
+    if (!list) return false;
+
+    const removed = list.remove(key);
+    if (removed) this.size--;
+
+    return removed;
+  }
 }
 
 export default HashMap;

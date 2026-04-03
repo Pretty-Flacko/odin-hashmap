@@ -35,6 +35,27 @@ class LinkedList {
 
     return null;
   }
+
+  remove(key) {
+    if (!this.head) return false;
+
+    if (this.head.key === key) {
+      this.head = this.head.next;
+      return true;
+    }
+
+    let current = this.head;
+
+    while (current.next) {
+      if (current.next.key === key) {
+        current.next = current.next.next;
+        return true;
+      }
+      current = current.next;
+    }
+
+    return false;
+  }
 }
 
 export default LinkedList;
