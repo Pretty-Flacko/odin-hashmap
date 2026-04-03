@@ -82,6 +82,7 @@ class LinkedList {
     let current = this.head;
     while (current) {
       entries.push([current.key, current.value]);
+      current = current.next;
     }
     return entries;
   }
