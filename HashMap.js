@@ -87,6 +87,15 @@ class HashMap {
     }
     return allKeys;
   }
+
+  values() {
+    const allValues = [];
+    for (let list of this.buckets) {
+      if (!list) continue;
+      allValues.push(...list.getValues());
+    }
+    return allValues;
+  }
 }
 
 export default HashMap;

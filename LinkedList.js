@@ -66,6 +66,16 @@ class LinkedList {
     }
     return keys;
   }
+
+  getValues() {
+    const values = [];
+    let current = this.head;
+    while (current) {
+      values.push(current.value);
+      current = current.next;
+    }
+    return values;
+  }
 }
 
 export default LinkedList;
