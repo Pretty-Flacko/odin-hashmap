@@ -76,6 +76,15 @@ class LinkedList {
     }
     return values;
   }
+
+  getEntries() {
+    const entries = [];
+    let current = this.head;
+    while (current) {
+      entries.push([current.key, current.value]);
+    }
+    return entries;
+  }
 }
 
 export default LinkedList;

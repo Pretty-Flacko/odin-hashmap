@@ -96,6 +96,15 @@ class HashMap {
     }
     return allValues;
   }
+
+  entries() {
+    const allEntries = [];
+    for (let list of this.buckets) {
+      if (!list) continue;
+      allEntries.push(...list.getEntries());
+    }
+    return allEntries;
+  }
 }
 
 export default HashMap;
