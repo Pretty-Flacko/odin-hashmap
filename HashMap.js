@@ -78,6 +78,15 @@ class HashMap {
     this.buckets = new Array(this.capacity).fill(null);
     this.size = 0;
   }
+
+  keys() {
+    const allKeys = [];
+    for (let list of this.buckets) {
+      if (!list) continue;
+      allKeys.push(...list.getKeys());
+    }
+    return allKeys;
+  }
 }
 
 export default HashMap;

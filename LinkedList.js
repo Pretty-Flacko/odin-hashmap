@@ -56,6 +56,16 @@ class LinkedList {
 
     return false;
   }
+
+  getKeys() {
+    const keys = [];
+    let current = this.head;
+    while (current) {
+      keys.push(current.key);
+      current = current.next;
+    }
+    return keys;
+  }
 }
 
 export default LinkedList;
